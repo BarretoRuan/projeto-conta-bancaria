@@ -1,15 +1,24 @@
 package conta;
 
 import java.util.Scanner;
+import conta.model.conta;
 import conta.Util.Cores;
 
 public class Menu {
 
 	public static void main(String[] args) {
 
-		Scanner leia = new Scanner(System.in);
+		// Teste da Classe Conta
+		conta c1 = new conta(1, 123, 1, "Adriana", 10000.0f);
+		c1.visualizar();
+		c1.sacar(12000.0f);
+		c1.visualizar();
+		c1.depositar(5000.0f);
+		c1.visualizar();
 
-		int opcao;
+		Scanner scanner = new Scanner(System.in);
+
+		int opcoes;
 
 		while (true) {
 
@@ -34,16 +43,16 @@ public class Menu {
 			System.out.println("Entre com a opção desejada:                          ");
 			System.out.println("" + Cores.TEXT_RESET);
 
-			opcao = leia.nextInt();
+			opcoes = scanner.nextInt();
 
-			if (opcao == 9) {
+			if (opcoes == 9) {
 				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
 				sobre();
-				leia.close();
+				scanner.close();
 				System.exit(0);
 			}
 
-			switch (opcao) {
+			switch (opcoes) {
 			case 1:
 				System.out.println(Cores.TEXT_WHITE + "Criar Conta\n\n");
 
