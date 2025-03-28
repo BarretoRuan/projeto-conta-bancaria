@@ -9,7 +9,7 @@ public class Menu {
 	public static void main(String[] args) {
 
 		// Teste da Classe Conta
-		conta c1 = new conta(1, 123, 1, "Adriana", 10000.0f);
+		conta c1 = new conta(1, 123, 1, "Laura", 10000.0f);
 		c1.visualizar();
 		c1.sacar(12000.0f);
 		c1.visualizar();
