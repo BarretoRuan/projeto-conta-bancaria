@@ -93,6 +93,7 @@ public abstract class Conta {
 		System.out.println("Tipo da Conta: " + tipo);
 		System.out.println("Titular: " + this.titular);
 		System.out.println("Saldo: " + this.saldo);
+		
 	}
     
 }
