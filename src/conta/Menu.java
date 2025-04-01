@@ -1,28 +1,38 @@
 package conta;
 
 import java.util.Scanner;
-import conta.model.conta;
-import conta.Util.Cores;
+
+import conta.model.ContaCorrente;
+import conta.model.ContaPoupanca;
+import conta.util.Cores;
 
 public class Menu {
 
+	public static Scanner leia = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 
-		// Teste da Classe Conta
-		conta c1 = new conta(1, 123, 1, "Laura", 10000.0f);
-		c1.visualizar();
-		c1.sacar(12000.0f);
-		c1.visualizar();
-		c1.depositar(5000.0f);
-		c1.visualizar();
+		int opcao;
 
-		Scanner scanner = new Scanner(System.in);
-
-		int opcoes;
-
+		// Teste da Classe Conta Corrente
+		ContaCorrente cc1 = new ContaCorrente(1, 123, 1, "José da Silva", 0.0f, 1000.0f);
+		cc1.visualizar();
+		cc1.sacar(12000.0f);
+		cc1.visualizar();
+		cc1.depositar(5000.0f);
+		cc1.visualizar();
+		
+        // Teste da Classe Conta Poupança
+		ContaPoupanca cp1 = new ContaPoupanca(2, 123, 2, "Maria dos Santos", 100000.0f, 15);
+		cp1.visualizar();
+        cp1.sacar(1000.0f);
+		cp1.visualizar();
+		cp1.depositar(5000.0f);
+		cp1.visualizar();
+		
 		while (true) {
-
-			System.out.println(Cores.TEXT_CYAN + Cores.ANSI_BLACK_BACKGROUND
+			
+			System.out.println(Cores.TEXT_CYAN + Cores.ANSI_BLACK_BACKGROUND 
 					+ "*****************************************************");
 			System.out.println("                                                     ");
 			System.out.println("                BANCO DO BRAZIL COM Z                ");
@@ -38,67 +48,56 @@ public class Menu {
 			System.out.println("            7 - Depositar                            ");
 			System.out.println("            8 - Transferir valores entre Contas      ");
 			System.out.println("            9 - Sair                                 ");
-			System.out.println("                                                     ");
+			System.out.println("                                                     "); 
 			System.out.println("*****************************************************");
 			System.out.println("Entre com a opção desejada:                          ");
-			System.out.println("" + Cores.TEXT_RESET);
-
-			opcoes = scanner.nextInt();
-
-			if (opcoes == 9) {
-				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
-				sobre();
-				scanner.close();
+			System.out.println("                                                     ");
+			opcao = leia.nextInt();
+			
+			if(opcao == 9) {
+				System.out.println("\nBanco do Brazil com Z - O seu futuro começa aqui!");
+				leia.close();
 				System.exit(0);
 			}
-
-			switch (opcoes) {
+			
+			switch(opcao) {
 			case 1:
-				System.out.println(Cores.TEXT_WHITE + "Criar Conta\n\n");
-
-				break;
+				System.out.println("\n Criar Conta");
+				
+                 break;
 			case 2:
-				System.out.println(Cores.TEXT_WHITE + "Listar todas as Contas\n\n");
-
-				break;
+				System.out.println("\n Listar todas as Contas");
+				
+                 break;
 			case 3:
-				System.out.println(Cores.TEXT_WHITE + "Consultar dados da Conta - por número\n\n");
-
+				System.out.println("\n Buscar Conta por número");
+				
 				break;
 			case 4:
-				System.out.println(Cores.TEXT_WHITE + "Atualizar dados da Conta\n\n");
-
-				break;
+				System.out.println("\n Atualizar dados da Conta");
+				
+                 break;
 			case 5:
-				System.out.println(Cores.TEXT_WHITE + "Apagar a Conta\n\n");
-
-				break;
+				System.out.println("\n Apagar Conta");
+				
+                 break;
 			case 6:
-				System.out.println(Cores.TEXT_WHITE + "Saque\n\n");
-
+				System.out.println("\n Sacar");
+				
 				break;
-			case 7:
-				System.out.println(Cores.TEXT_WHITE + "Depósito\n\n");
-
+             case 7:
+				System.out.println("\n Depositar");
+				
 				break;
-			case 8:
-				System.out.println(Cores.TEXT_WHITE + "Transferência entre Contas\n\n");
-
+             case 8:
+				System.out.println("\n Transferir");
+				
 				break;
 			default:
-				System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
-				break;
+				System.out.println("\nOpção Inválida");
+                 break;
 			}
-		}
-	}
-
-	public static void sobre() {
-		System.out.println("\n*********************************************************");
-		System.out.println("Projeto Desenvolvido por: ");
-		System.out.println("Generation Brasil - generation@generation.org");
-		System.out.println("github.com/conteudoGeneration");
-		System.out.println("*********************************************************");
-
+        }
 	}
 
 }
